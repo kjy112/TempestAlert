@@ -9,6 +9,6 @@ Documentation utilizes DocBlock practice, and the documentation is generated wit
 ## Links
 https://github.com/jayvan/tempest-watch - Github for tempest-watch aka http://poetempest.com<br/>
 https://getcomposer.org/ - Composer is a dependency manager for PHP<br/>
-http://www.phpdoc.org/ - phpDocumentor
-https://www.pathofexile.com/ - Path of Exile is an online Action RPG set in the dark fantasy world of Wraeclast.
+http://www.phpdoc.org/ - phpDocumentor<br/>
+https://www.pathofexile.com/ - Path of Exile is an online Action RPG set in the dark fantasy world of Wraeclast.<br/>
 http://www.grindinggear.com/ - Grinding Gear Games develops Path of Exiles
