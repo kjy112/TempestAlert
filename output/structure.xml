@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="API Documentation" version="2.8.5">
+  <partials/>
+  <file path="TempestCache.php" generated-path="TempestCache.html" hash="39785ef4dc4c43e91ee448f708f4341b" package="TempestAlert">
+    <docblock line="0">
+      <description>TempestCache.php</description>
+      <long-description>PHP Version 5.4</long-description>
+      <tag name="author" line="0" description="K.J Ye me@kjye.name"/>
+      <tag name="version" line="0" description="TempestCache Version 0, 9-15-2015"/>
+      <tag name="package" line="0" description="TempestAlert"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="26" package="TempestAlert">
+      <extends/>
+      <name>TempestCache</name>
+      <full_name>\TempestCache</full_name>
+      <docblock line="26">
+        <description>TempestCache stores a set of data as JSON and reads and writes the data into and from tempest.json file.</description>
+        <long-description>TempestCache class uses singleton to load tempest.json's data and use it as a cache to compare current data
+finding with the stored cache. If the stored cache is equivalent to the current data finding, then do nothing,
+else replace the cache with the current dataset as JSON into tempest.json. The cache is used to make sure users do not receive multiple
+alerts of the same data set. Thus, reduce redundancy.</long-description>
+        <tag name="author" line="26" description="K.J Ye me@kjye.name"/>
+        <tag name="version" line="26" description="TempestCache Version 0, 9-15-2015"/>
+        <tag name="package" line="26" description="TempestAlert"/>
+      </docblock>
+      <property static="true" visibility="private" namespace="" line="30" package="TempestAlert">
+        <name>$instance</name>
+        <full_name>\TempestCache::instance</full_name>
+        <default></default>
+        <docblock line="30">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="30" description="&lt;p&gt;Singleton object instance&lt;/p&gt;" type="\TempestCache" variable="$instance">
+            <type>\TempestCache</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="private" namespace="" line="34" package="TempestAlert">
+        <name>$tempest</name>
+        <full_name>\TempestCache::tempest</full_name>
+        <default>'tempest.json'</default>
+        <docblock line="34">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="34" description="&lt;p&gt;JSON file path that stores dataset/cache&lt;/p&gt;" type="string" variable="$tempest">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="private" namespace="" line="39" package="TempestAlert">
+        <name>$cache</name>
+        <full_name>\TempestCache::cache</full_name>
+        <default></default>
+        <docblock line="39">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="39" description="&lt;p&gt;JSON decoded dataset reads from JSON file&lt;/p&gt;" type="array&lt;mixed,array&gt;" variable="$cache">
+            <type>array&lt;mixed,array&gt;</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="44" package="TempestAlert">
+        <name>__construct</name>
+        <full_name>\TempestCache::__construct()</full_name>
+        <docblock line="44">
+          <description>Empty construct for singleton.</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="55" package="TempestAlert">
+        <name>tempestChanged</name>
+        <full_name>\TempestCache::tempestChanged()</full_name>
+        <docblock line="55">
+          <description>TempestCache::tempestChanged($incoming) to check if incoming data array matches cache</description>
+          <long-description></long-description>
+          <tag name="param" line="55" description="&lt;p&gt;Array structure of current dataset that needs to be compared to the cache.&lt;/p&gt;" type="array&lt;mixed,array&gt;" variable="$incoming">
+            <type>array&lt;mixed,array&gt;</type>
+          </tag>
+          <tag name="return" line="55" description="True if datasets are different or timestamp is not within in the hour. Cache resets every hour.&#10;&#9;&#9;&#9;&#9;   returns false if incoming data set is the same as cache." type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$incoming</name>
+          <default></default>
+          <type>array&lt;mixed,array&gt;</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="" line="82" package="TempestAlert">
+        <name>setCache</name>
+        <full_name>\TempestCache::setCache()</full_name>
+        <docblock line="82">
+          <description>Sets cache by writing json data into tempest.json file</description>
+          <long-description></long-description>
+          <tag name="param" line="82" description="" type="array&lt;mixed,array&gt;" variable="$incoming">
+            <type>array&lt;mixed,array&gt;</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$incoming</name>
+          <default></default>
+          <type>array&lt;mixed,array&gt;</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="" line="96" package="TempestAlert">
+        <name>checkTimeStamp</name>
+        <full_name>\TempestCache::checkTimeStamp()</full_name>
+        <docblock line="96">
+          <description>Checks to see if timestamp is within the hour.</description>
+          <long-description></long-description>
+          <tag name="param" line="96" description="&lt;p&gt;Timestamp that is to be check to see if its within the hour.&lt;/p&gt;" type="String" variable="$incomingTime">
+            <type>String</type>
+          </tag>
+          <tag name="return" line="96" description="True if timestamp is within the hour else false. Tempest resets every hour." type="Boolean">
+            <type>Boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$incomingTime</name>
+          <default></default>
+          <type>String</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="" line="113" package="TempestAlert">
+        <name>checkDataSet</name>
+        <full_name>\TempestCache::checkDataSet()</full_name>
+        <docblock line="113">
+          <description>Compares the current dataset with cache.</description>
+          <long-description></long-description>
+          <tag name="param" line="113" description="&lt;p&gt;Current dataset that is to be compared to cache.&lt;/p&gt;" type="array&lt;mixed,array&gt;" variable="$incomingData">
+            <type>array&lt;mixed,array&gt;</type>
+          </tag>
+          <tag name="return" line="113" description="True if incoming dataset is same as cache else false." type="Boolean">
+            <type>Boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$incomingData</name>
+          <default></default>
+          <type>array&lt;mixed,array&gt;</type>
+        </argument>
+      </method>
+    </class>
+    <source>eJytVm1v2zYQ/qwA+Q/XIoDtzJGTYfmwtOnLsqFrV3TFnG0YgsBgJCpmI0saSSUz2v733R0pifJL1gYzAscg757nePfckU+fV/Nqd2eyv7+7A/twLheVNPZMJHMZ8w64jfc/v4c/pDaqLOA4/q5dfyFqOy81/BK/gb8kLOSLmw9LGRdiId3+rXcKkVukwzF8f3B0fPDt4dGxM69EciOuZWP+MpfaNmST3Z3NkYKxpZYGBBhpocwgFVaAMPBm+us7EEUKWorU8K87rSyaWvRiK1XYkjcyXS7AOtT4g8HoMpXLmMnWGZNcGAO1QSijiutcWnRApLwUaQ9lYHw0SIHmoCwFJiBhGPRIykUlNCLWWsvCOmsmzFSRIjbcKTvngPmYqXON4XW2tgjKgPy7VrciJyhEJ4sesgcd004BaQlFaee8wJwyxxi1rHKRSOfMuG0IIRYlu0kypzE8dwznrbfiTKUUz0LcYMg1nhdXtPEBIGMi1S3qp86tqnLpghFUfUMF5YOiptwZkJjgazNGx7ROJP8rUlEky6Bg/7M2Wwm62odOH3d3IhZmxLBC9yH3VGEsBiejaauV8uqDTCw0O+yK6FGlsXqWyiqsSjrXJ2sUxmpSx57POkQRV4JUC5XgegnbtIav14QLspWsgTqFQU/D6+RCa7G8uIQ9Bow8dyqTMsVCN+pwbced1cbGIFsjYDiiCxl/WlR2iY2CqdA1Ji3DorZdFwdYpcWcIn9WF4mlIs5mrddw9PHzCm5YpJMTf+KzuSiuZTrEzGNrIsuIu3QukxtQGTSrvqspDShqi/sGuuT6TGFji0WXq9b3Jbu5uKgXUOGrjcXFK6TE/CH9lWzmRNp2NU+BkE1LBCvgqixzKVDVupYUsUfEoYNMqcoyyUSYQ6sWeGCxqKhDqQ2pzVWBZ2SGeVnrGJyEUUMEIbFllm7DkWLlIwBw1FhqQfNjLU10IGW6LhYmDH/iyuIl0NZuez2w3YA/SDR89/vbt3B6ihx5dnLS9gtbRdHKKiq7kHe9wg9HJLdIZcNHJM+Z/EcZa4be0QcxGjGah8PjONcuJsaIfAWwrqzh6DONU+e5l1VInpWVLFawxzDQAw/gd9zYPAVqvplrqmF2jQUYIszI22ZJXhrJK46syQrJHIC/JpM/6b7zc9jdhG2IcEdXQCO87gLhbuvJo68cKj/tb6xxZ4YKLrqWwFoNGXkYnnEEnz7BI7fCLXaOnFPiDOu9YvMj0k2lDSweVB1MVNTkib/8Pmv4iUummxj0y7076LMPU2oFl6+rJb8oKAv8ZujeFGtPida9/bFtPjQGk64rNsy2DefkNEwmMpmXMAjjGkAMg6dXevKMv3ig3y/Ju2+8JjN+MZHMxk6PsmA9Btl3dn05rs7aM6oczzIjeUL0ho8fPO3UcT69KTr1111DS0qB8xaE56VqhyWP645M2f/g8LX/YWV23hekeyuxWuJmomybk/dXcpvyaYlryvoLDtuMW+vDVHZTfFSV/S+MEpoPO00CHV0vUNNy+PjV4zGErXuRlHVh+918cHQ5IqUB6c07Dl4Nxv2qec/+MRvXVZHi2PjqCPA2+Hry0cYJTtmLwp1mOqwJHM7cBW02vpP5Ab1+ZW8ZADThorNNLwK16TkQ4G5Vcm9Y+1ndu4tDoXypZtcmMS0Ein29gXTjOyaNvVp/C64njJoj7AKD8NMp1akVn6WztMb+4XTO6CLqB3ZxeLkioMNLP7y81p02HuCPKn2ILyn18AHCw7/nz/4FBhPmPQ==</source>
+  </file>
+  <file path="TempestWatch.php" generated-path="TempestWatch.html" hash="6b1ac72ec42063e68a740f2547a8dd05" package="TempestAlert">
+    <docblock line="0">
+      <description>TempestWatch.php</description>
+      <long-description>PHP Version 5.4</long-description>
+      <tag name="author" line="0" description="K.J Ye me@kjye.name"/>
+      <tag name="version" line="0" description="TempestWatch Version 0, 9-15-2015"/>
+      <tag name="package" line="0" description="TempestAlert"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="26" package="TempestAlert">
+      <extends/>
+      <name>TempestWatch</name>
+      <full_name>\TempestWatch</full_name>
+      <docblock line="26">
+        <description>TempestWatch access poetempest.com's API or direct crawl and checks if maps contain a set of preffix and/or suffix.</description>
+        <long-description>TempestWatch class access poetempest.com first by checking the web API and retrives the JSON dataset from it. If
+for whatever reason the API fails, it uses CRUL to direct crawl poetempest.com. The retrived JSON or DOM is then
+traversed to check for a set of preffix and suffix with a set of conditions. If preffix and/or suffix exists, then the map that it's associates
+gets append to an array $final. $final is then returned. If no preffix or suffix exists then an empty $final is returned.
+-1 is returned if both API and CRUL methods failed.</long-description>
+        <tag name="author" line="26" description="K.J Ye me@kjye.name"/>
+        <tag name="version" line="26" description="TempestWatch Version 0, 9-15-2015"/>
+        <tag name="package" line="26" description="TempestAlert"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="" line="30" package="TempestAlert">
+        <name>$APIGetURL</name>
+        <full_name>\TempestWatch::APIGetURL</full_name>
+        <default></default>
+        <docblock line="30">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="30" description="&lt;p&gt;poetempest.com API URL&lt;/p&gt;" type="String" variable="$APIGetURL">
+            <type>String</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="" line="34" package="TempestAlert">
+        <name>$url</name>
+        <full_name>\TempestWatch::url</full_name>
+        <default></default>
+        <docblock line="34">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="34" description="&lt;p&gt;Website URL to CRUL: poetempest.com&lt;/p&gt;" type="String" variable="$url">
+            <type>String</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="" line="38" package="TempestAlert">
+        <name>$id</name>
+        <full_name>\TempestWatch::id</full_name>
+        <default>'maps'</default>
+        <docblock line="38">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="38" description="&lt;p&gt;Default to 'maps.' This is the DOM element to look for when traversing through DOM&lt;/p&gt;" type="String" variable="$id">
+            <type>String</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="" line="42" package="TempestAlert">
+        <name>$votesRequired</name>
+        <full_name>\TempestWatch::votesRequired</full_name>
+        <default></default>
+        <docblock line="42">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="42" description="&lt;p&gt;Vote condition to check for and is set through instantiation. Default to 1.&lt;/p&gt;" type="Int" variable="$votesRequred">
+            <type>Int</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="53" package="TempestAlert">
+        <name>__construct</name>
+        <full_name>\TempestWatch::__construct()</full_name>
+        <docblock line="53">
+          <description>Instantiation class that requires at least $url param. $votes is the minimum required condition
+for a map default to 1 if none passed. $api is the URL for the API.</description>
+          <long-description></long-description>
+          <tag name="param" line="53" description="&lt;p&gt;URL of the website to CRUL&lt;/p&gt;" type="String" variable="$url">
+            <type>String</type>
+          </tag>
+          <tag name="param" line="53" description="&lt;p&gt;Minimum votes required condition&lt;/p&gt;" type="Int" variable="$votes">
+            <type>Int</type>
+          </tag>
+          <tag name="param" line="53" description="&lt;p&gt;URL for the API. If no param passed then its set to null and by pass API method&lt;/p&gt;" type="String" variable="$api">
+            <type>String</type>
+          </tag>
+          <tag name="example" line="53" description="TempestWatch('poetempest.com'), new TempestWatch('poetempest.com', 3), or new TempestWatch('poetempest.com', 3, 'poetempest.com/rest')"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$url</name>
+          <default></default>
+          <type>String</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$votes</name>
+          <default>1</default>
+          <type>Int</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$api</name>
+          <default>NULL</default>
+          <type>String</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="67" package="TempestAlert">
+        <name>execute</name>
+        <full_name>\TempestWatch::execute()</full_name>
+        <docblock line="67">
+          <description>Entry method to retrive either API's JSON or CRUL's DOM. If $this-&gt;APIGetURL is null we skip to CRUL method, else use API URL
+to retrive JSON. We first check to see if API returns JSON, if it fails we use CRUL to retrive $this-&gt;url's DOM. If both methods
+fail, we return -1. If success, an array of result is returned containing the maps we are looking for.</description>
+          <long-description></long-description>
+          <tag name="param" line="67" description="&lt;p&gt;An array of strings with preffix and suffix to check for.&lt;/p&gt;" type="array&lt;mixed,array&gt;" variable="$filters">
+            <type>array&lt;mixed,array&gt;</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$filters</name>
+          <default></default>
+          <type>array&lt;mixed,array&gt;</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="95" package="TempestAlert">
+        <name>accessAPI</name>
+        <full_name>\TempestWatch::accessAPI()</full_name>
+        <docblock line="95">
+          <description>Retriving poetempest.com data through its API URL. Data holds maps with current tempest's preffix and suffix along with
+a vote count submitted by users to check for validity.</description>
+          <long-description></long-description>
+          <tag name="param" line="95" description="&lt;p&gt;Contains the preffix and/or suffix that we we use to match with the map mods.&lt;/p&gt;" type="array&lt;mixed,array&gt;" variable="$filters">
+            <type>array&lt;mixed,array&gt;</type>
+          </tag>
+          <tag name="return" line="95" description="If success, an array of maps are returned, else -1 is returned for failure." type="array&lt;mixed,array&gt;|integer">
+            <type>array&lt;mixed,array&gt;</type>
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$filters</name>
+          <default></default>
+          <type>array&lt;mixed,array&gt;</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="135" package="TempestAlert">
+        <name>accessHTML</name>
+        <full_name>\TempestWatch::accessHTML()</full_name>
+        <docblock line="135">
+          <description>Alternate method to retrive poetempest.com data if API fails. It uses CURL to directly access poetempest.com
+DOM. Using DOMDocument, we traverse through the retrived DOM and look for the 'map' element. DOM holds maps
+with current tempest's preffix and suffix along with a vote count submitted by users to check for validity.</description>
+          <long-description></long-description>
+          <tag name="param" line="135" description="&lt;p&gt;Contains the preffix and/or suffix that we we use to match with the map mods.&lt;/p&gt;" type="array&lt;mixed,array&gt;" variable="$filters">
+            <type>array&lt;mixed,array&gt;</type>
+          </tag>
+          <tag name="return" line="135" description="If success, an array of maps are returned, else -1 is returned for failure." type="array&lt;mixed,array&gt;|integer">
+            <type>array&lt;mixed,array&gt;</type>
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$filters</name>
+          <default></default>
+          <type>array&lt;mixed,array&gt;</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="179" package="TempestAlert">
+        <name>debugDOMNode</name>
+        <full_name>\TempestWatch::debugDOMNode()</full_name>
+        <docblock line="179">
+          <description>DOMNode and DOMNodelist debugger</description>
+          <long-description></long-description>
+          <tag name="param" line="179" description="&lt;p&gt;DOMNode to debug.&lt;/p&gt;" type="\DOMNode" variable="$domEle">
+            <type>\DOMNode</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$domEle</name>
+          <default></default>
+          <type>\DOMNode</type>
+        </argument>
+      </method>
+    </class>
+    <source>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</source>
+  </file>
+  <file path="poetempest.php" generated-path="poetempest.html" hash="1ed0c89b52987be0ef9b64b78d2c9c87" package="TempestAlert">
+    <docblock line="0">
+      <description>TempestAlert main page. Use Cronjob to crawl through poetempest.com.</description>
+      <long-description>TempestAlert is a web script that alerts users through either text message or email whenever a preffix and/or suffix appears for a map.
+It uses either poetempest.com's JSON API or it a CURL backup method that crawls through poetempest.com's home page to retrive current tempests of maps.
+Tempests are reset every hour and each map can have at most one preffix and/or suffix.</long-description>
+      <tag name="author" line="0" description="K.J Ye me@kjye.name"/>
+      <tag name="version" line="0" description="poetempest.php Version 0, 9-15-2015"/>
+      <tag name="package" line="0" description="TempestAlert"/>
+    </docblock>
+    <source>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</source>
+  </file>
+  <package name="TempestAlert" full_name="TempestAlert"/>
+  <package name="global" full_name="global"/>
+  <namespace name="global" full_name="global"/>
+  <deprecated count="0"/>
+</project>

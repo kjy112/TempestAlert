@@ -1,0 +1,17 @@
+a:17:{s:8:"provides";a:0:{}s:8:"filelist";a:1:{s:18:"Console/Getopt.php";a:3:{s:4:"role";s:3:"php";s:6:"md5sum";s:32:"99ed4904b93b15a81ea9c8566c3ffc78";s:12:"installed_as";s:57:"C:\Apache2\htdocs\tshirtshop\libs\pear\Console\Getopt.php";}}s:10:"xsdversion";s:3:"1.0";s:15:"packagerversion";s:5:"1.4.9";s:7:"package";s:14:"Console_Getopt";s:7:"summary";s:26:"Command-line option parser";s:11:"description";s:83:"This is a PHP implementation of "getopt" supporting both
+short and long options.
+ 
+";s:11:"maintainers";a:3:{i:0;a:4:{s:6:"handle";s:6:"andrei";s:4:"name";s:15:"Andrei Zmievski";s:5:"email";s:14:"andrei@php.net";s:4:"role";s:4:"lead";}i:1;a:4:{s:6:"handle";s:3:"ssb";s:4:"name";s:11:"Stig Bakken";s:5:"email";s:12:"stig@php.net";s:4:"role";s:9:"developer";}i:2;a:4:{s:6:"handle";s:6:"cellog";s:4:"name";s:11:"Greg Beaver";s:5:"email";s:14:"cellog@php.net";s:4:"role";s:6:"helper";}}s:7:"version";s:5:"1.2.1";s:12:"release_date";s:10:"2006-12-08";s:15:"release_license";s:11:"PHP License";s:13:"release_state";s:6:"stable";s:13:"release_notes";s:130:"Fixed bugs #4448 (Long parameter values truncated with longoption parameter) and #7444 (Trailing spaces after php closing tag)
+  
+";s:9:"changelog";a:5:{i:0;a:4:{s:7:"version";s:3:"1.2";s:12:"release_date";s:10:"2003-12-11";s:13:"release_state";s:6:"stable";s:13:"release_notes";s:75:"Fix to preserve BC with 1.0 and allow correct behaviour for new users
+    
+";}i:1;a:4:{s:7:"version";s:3:"1.0";s:12:"release_date";s:10:"2002-09-13";s:13:"release_state";s:6:"stable";s:13:"release_notes";s:20:"Stable release
+    
+";}i:2;a:4:{s:7:"version";s:4:"0.11";s:12:"release_date";s:10:"2002-05-26";s:13:"release_state";s:4:"beta";s:13:"release_notes";s:95:"POSIX getopt compatibility fix: treat first element of args
+        array as command name
+    
+";}i:3;a:4:{s:7:"version";s:4:"0.10";s:12:"release_date";s:10:"2002-05-12";s:13:"release_state";s:4:"beta";s:13:"release_notes";s:19:"Packaging fix
+    
+";}i:4;a:4:{s:7:"version";s:3:"0.9";s:12:"release_date";s:10:"2002-05-12";s:13:"release_state";s:4:"beta";s:13:"release_notes";s:21:"Initial release
+    
+";}}s:12:"_lastversion";N;s:7:"dirtree";a:1:{s:46:"C:\Apache2\htdocs\tshirtshop\libs\pear\Console";b:1;}s:13:"_lastmodified";i:1171467581;}

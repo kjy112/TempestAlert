@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+  <parser>
+    <target>C:\wamp\www\tempestAlert\output</target>
+  </parser>
+  <transformer>
+    <target>C:\wamp\www\tempestAlert\output</target>
+  </transformer>
+  <transformations>
+    <template name="responsive" />
+  </transformations>
+  <files>
+	<file>C:\wamp\www\tempestAlert\poetempest.php</file>
+	<file>C:\wamp\www\tempestAlert\TempestWatch.php</file>
+	<file>C:\wamp\www\tempestAlert\TempestCache.php</file>
+    <directory>C:\wamp\www\tempestAlert</directory>
+	<ignore>C:\wamp\www\tempestAlert\vendor\*</ignore>
+	<ignore>C:\wamp\www\tempestAlert\libs\*</ignore>
+	<ignore>C:\wamp\www\tempestAlert\include\*</ignore>
+	<ignore>C:\wamp\www\tempestAlert\poetempest_v0.php</ignore>
+	<ignore>C:\wamp\www\tempestAlert\poetempest_v1.php</ignore>
+	<ignore>C:\wamp\www\tempestAlert\tempest.json</ignore>
+  </files>
+</phpdoc>

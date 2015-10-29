@@ -1,0 +1,9 @@
+REGEDIT4
+[HKEY_CURRENT_USER\Environment]
+"PHP_PEAR_SYSCONF_DIR"="C:\\Apache2\\htdocs\\tshirtshop\\libs"
+"PHP_PEAR_INSTALL_DIR"="C:\\Apache2\\htdocs\\tshirtshop\\libs\\pear"
+"PHP_PEAR_DOC_DIR"="C:\\Apache2\\htdocs\\tshirtshop\\libs\\pear\\docs"
+"PHP_PEAR_BIN_DIR"="C:\\Apache2\\htdocs\\tshirtshop\\libs"
+"PHP_PEAR_DATA_DIR"="C:\\Apache2\\htdocs\\tshirtshop\\libs\\pear\\data"
+"PHP_PEAR_PHP_BIN"="C:\\Apache2\\modules\\php\\.\\php.exe"
+"PHP_PEAR_TEST_DIR"="C:\\Apache2\\htdocs\\tshirtshop\\libs\\pear\\tests"

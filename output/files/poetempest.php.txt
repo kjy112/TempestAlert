@@ -1,0 +1,59 @@
+<?php
+require_once 'include/config.inc.php';
+require_once "Mail.php";
+require_once 'TempestWatch.php';
+require_once 'TempestCache.php';
+
+/* 	Two methods to retrieve tempest dataset.
+ * 	Initial method is to use the API with PHP DOMDocument as fall back
+ * 	if API is unreachable.
+ *	
+ *	API GET call returns a JSON dataset with current tempests.
+ */
+ $API = 'http://poetempest.com/api/v1/current_tempests';
+ $url = 'http://poetempest.com/';
+ $votesRequired = '3';
+ $notifyTempest = ["turmoil", "radiating", "shining", "corrupting", "corruption", "fortune", "phantoms", "destiny", "fate", "incursion"];
+ 
+ $tempest = new TempestWatch($url, $votesRequired, $API);
+ $result = $tempest->execute($notifyTempest);
+  
+
+if(count($result) > 0 && $result != -1){
+	$result[] = time();
+	if(TempestCache::tempestChanged($result)){
+		//Sets Notification based on flag
+		if(EMAIL_NOTIFICATION && SMS_NOTIFICATION){
+			$to = CONTACT_EMAIL . ', ' . CONTACT_SMS . '@' . CONTACT_SMS_PROVIDER;
+		}else if(EMAIL_NOTIFICATION){
+			$to = CONTACT_EMAIL;
+		}else if(SMS_NOTIFICATION){
+			$to = CONTACT_SMS . '@' . CONTACT_SMS_PROVIDER;;
+		}else {
+			echo 'No notification set. Do nothing!';
+			exit;
+		}
+		
+		//Setup email/SMS header, subject, and message
+		$subject = 'Tempest Found';	
+		$body = 'Tempest Current Active: '."\n\n";
+		foreach($result as $map)
+			if(is_array($map))
+				$body .= 'Map: '.ucfirst($map[0]).' with '.ucfirst($map[1]).' mod active'."\n";
+		
+		$headers = array ('From' => 'info@poetempest.com', 'To' => $to, 'Subject' => $subject);
+
+		$mail = Mail::factory("mail");
+		$mail->send($to, $headers, $body);
+
+		if (PEAR::isError($mail)){
+			echo 'Failed to send Tempest notification to '.$to;
+			error_log('Failed to send Tempest notification to '.$to, 0);
+		} else {
+			echo 'Tempest notification email successfully sent!';
+		}
+	} else
+		echo 'No New Tempest Found Within The Hour! Check Previous Email!';
+} else
+		echo 'No Tempest found!';
+?>
