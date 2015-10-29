@@ -1,6 +1,6 @@
 # TempestAlert
 
-TempestAlert is a program that alerts you VIA email and/or text message when a tempest with with a set of preffix and/or suffix are reported on http://poetempest.com. This program is made to enhance the game play for Path Of Exile. 
+TempestAlert is a program that alerts you VIA email and/or text message when a tempest with a set of preffix and/or suffix are reported on http://poetempest.com. This program is made to enhance the game play for Path Of Exile. 
 
 Documentation utilizes DocBlock practice, and the documentation is generated with phpDocumentor. Composer is used for managing dependecy. Requires PHP 5.4+
 
