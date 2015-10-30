@@ -6,7 +6,7 @@ Documentation utilizes DocBlock practice, and the documentation is generated wit
 
 ## Usage
 
-Setup a Cron job that runs every 5 mins on poetempest.php:
+Setup a Cron job that runs every 5 mins, or however often you want to check the tempest, on poetempest.php:
 
 ```
 php /public_html/tempestAlert/poetempest.php
