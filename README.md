@@ -12,7 +12,8 @@ define('EMAIL_NOTIFICATION', TRUE);
 define('SMS_NOTIFICATION', TRUE);
 define('CONTACT_EMAIL', 'me@yourname.name');
 define('CONTACT_SMS', '5555555555');
-define('CONTACT_SMS_PROVIDER', 'tmomail.net'); //TMobile. Please refer to https://en.wikipedia.org/wiki/SMS_gateway
+//TMobile. Please refer to https://en.wikipedia.org/wiki/SMS_gateway
+define('CONTACT_SMS_PROVIDER', 'tmomail.net'); 
 ```
 
 Setup a Cron job that runs every 5 mins, or however often you want to check the tempest, on poetempest.php:
