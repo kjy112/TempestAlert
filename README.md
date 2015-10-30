@@ -16,7 +16,7 @@ define('CONTACT_SMS', '5555555555');
 define('CONTACT_SMS_PROVIDER', 'tmomail.net'); 
 ```
 
-Setup a Cron job that runs every 5 mins, or however often you want to check the tempest, on poetempest.php:
+Then setup a Cron job that runs every 5 mins, or however often you want to check the tempest, on poetempest.php:
 
 ```
 php /public_html/tempestAlert/poetempest.php
