@@ -5,6 +5,15 @@ TempestAlert is a program that alerts you VIA email and/or text message when a t
 Documentation utilizes DocBlock practice, and the documentation is generated with phpDocumentor. Composer is used for managing dependecy. Requires PHP 5.4+
 
 ## Usage
+Make sure you set the following setting in include/config.inc.php with your own information
+
+```
+define('EMAIL_NOTIFICATION', TRUE);
+define('SMS_NOTIFICATION', TRUE);
+define('CONTACT_EMAIL', 'me@yourname.name');
+define('CONTACT_SMS', '5555555555');
+define('CONTACT_SMS_PROVIDER', 'tmomail.net'); //TMobile. Please refer to https://en.wikipedia.org/wiki/SMS_gateway
+```
 
 Setup a Cron job that runs every 5 mins, or however often you want to check the tempest, on poetempest.php:
 
