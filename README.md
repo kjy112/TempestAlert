@@ -4,7 +4,13 @@ TempestAlert is a program that alerts you VIA email and/or text message when a t
 
 Documentation utilizes DocBlock practice, and the documentation is generated with phpDocumentor. Composer is used for managing dependecy. Requires PHP 5.4+
 
+## Usage
 
+Setup a Cron job that runs every 5 mins on poetempest.php:
+
+```
+php /public_html/tempestAlert/poetempest.php
+```
 
 ## Links
 https://github.com/jayvan/tempest-watch - Github for tempest-watch aka http://poetempest.com<br/>
